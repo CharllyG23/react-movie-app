@@ -1,0 +1,50 @@
+.media {
+  display: flex;
+  flex-direction: column;
+  width: 230px;
+  margin: 10px 0;
+  /* background-color: #0f3279; */
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+}
+
+.media:hover {
+  cursor: pointer;
+  background-color: rgb(176, 105, 243);
+  color: black;
+}
+.title {
+  width: 100%;
+  text-align: center;
+  padding: 8px 0;
+  color: rgb(238, 238, 238);
+}
+
+.box  {
+  display: flex;
+  align-items: stretch;
+}
+.subTitle {
+  margin-left: 20px;
+  margin-right: 27px;
+  font-size: 2.4vh;
+  margin-bottom: 8px;
+  color: blueviolet;
+}
+
+@media (max-width: 550px) {
+  .media {
+    width: 46%;
+  }
+}
+
+@media (max-width: 375px) {
+  .media {
+    width: 46%;
+  }
+  .subTitle{
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 2.1vh;
+  }
+}
