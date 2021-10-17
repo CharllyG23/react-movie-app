@@ -10,8 +10,9 @@
 
 .media:hover {
   cursor: pointer;
-  background-color: rgb(176, 105, 243);
-  color: black;
+  background-color: rgba(129, 5, 36, 0.692);
+  box-shadow: 0px 15px 25px rgba(173, 14, 61, 0.3);
+  transform: scale(1.07);
 }
 .title {
   width: 100%;
@@ -29,7 +30,7 @@
   margin-right: 27px;
   font-size: 2.4vh;
   margin-bottom: 8px;
-  color: blueviolet;
+  color: rgb(228, 9, 100);
 }
 
 @media (max-width: 550px) {

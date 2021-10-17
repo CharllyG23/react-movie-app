@@ -18,3 +18,10 @@
     color: #ffff;
 }
 
+.imgBanner h3{
+	font-size: 1rem;
+	font-weight: bold;
+	margin: 1rem 0;
+	z-index: 100;
+}
+

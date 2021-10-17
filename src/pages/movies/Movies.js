@@ -3,16 +3,21 @@ import axios from "axios";
 import { Container } from "@material-ui/core";
 import SingleContent from "../../components/singleContent/SingleContent";
 import CustomPagination from "../../components/pagination/CustomPagination";
+import Genres from "../../components/genres/Genres";
+import useGenre from "../../hooks/UseGenre"
 import './Movies.css'
 
 const Movies = () => {
     const [ page, setPage ] = useState(1);
     const [ content, setContent ] = useState([]);
     const [ numOfPages, setNumOfPages ] = useState();
+    const [ selectedGenres, setSelectedGenres ] = useState([]);
+    const [ genres, setGenres ] = useState([]);
+    const genreforURL = useGenre(selectedGenres);
 
     const  fetchMovies = async () =>{
         const { data } = await axios.get(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}`
+            `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreforURL}`
         );
         setContent(data.results);
         setNumOfPages(data.total_pages);
@@ -20,12 +25,20 @@ const Movies = () => {
 
     useEffect(() => {
         fetchMovies();
-    }, [page]);
+         // eslint-disable-next-line
+    }, [page, genreforURL]);
 
 
     return(
         <div className="container-movies">
-             <h2 className="title-movies">Movies</h2>    
+             <h2 className="title-movies">Movies</h2>
+             <Genres type='movie' 
+             selectedGenres={selectedGenres}
+             setSelectedGenres={setSelectedGenres} 
+             genres={genres} 
+             setGenres={setGenres} 
+             setPage={setPage}
+             />    
                 <Container  maxWidth='lg'>
                 <div className="trending">
                     {content && content.map((c) => (

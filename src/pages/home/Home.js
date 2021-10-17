@@ -28,7 +28,6 @@ const Home = () => {
                 src={ content.poster_path ? `${original}/${content.backdrop_path}` : unavailable } 
                 alt={ content.title} 
                 />
-                <button className="button">hola</button>
             </div>
             <Trending/>
         </div>
